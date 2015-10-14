@@ -1,0 +1,12 @@
+<template name="mainLayout">
+  {{> Template.dynamic template=nav}}
+  <div class="ui container">
+		<div class="ui grid">
+			<div class="sixteen wide column">
+				<br>
+  			{{> Template.dynamic template=menu}}
+  			{{> Template.dynamic template=main}}
+  		</div>
+		</div>
+	</div>
+</template>

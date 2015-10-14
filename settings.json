@@ -1,0 +1,29 @@
+{
+"public": {
+    "kadira": { 
+      "appId": "Hipn7BvbH9yn9RbKc"
+    },
+    "guidebox": {
+      "apikey": "rK3ehH7lAx8QTMccln85aoqQGzcsBrJ5"
+    },
+    "google": {
+      "clientId": "660777946955-al48qk0pkurc1fe7uc4ak0kvmu4ooou9.apps.googleusercontent.com"
+
+    },
+    "facebook": {
+      "appId": "1558591074396292"
+    }
+  },
+"private": {
+    "kadira": { 
+      "appSecret": "bbc8b5b7-2299-4d06-bf09-298f637c8b2a" 
+    },
+    "google": {
+      "secret": "gB7w6oyHg9TPedydUEoedv9b"
+    },
+    "facebook": {
+      "secret": "04929fdecbd99787dce5f3a7ab148e72"
+    }
+  }
+}
+

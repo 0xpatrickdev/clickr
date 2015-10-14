@@ -1,0 +1,48 @@
+<template name="admin">
+	<div class="ui segment">
+		<h3>Admin Tools</h3>
+		<div class="ui divider"></div>
+		<div class="ui basic black button" id="getChannels">Get All Channels</div>
+	</div>
+
+	<div class="ui segment">
+		<h3>Channel Tools</h3>
+		<div class="ui divider"></div>
+
+		<table class="ui very compact sortable selectable celled table">
+		  <thead class="full-width">
+		    <tr>
+		      <th>Channel</th>
+		      <th>Shows</th>
+		      <th>Last Updated</th>
+		      <th></th>
+		      <th>Movies</th>
+		      <th>Last Updated</th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    {{#each channels}}
+				<tr>
+					<td><img src="{{artwork}}"></td>
+					<td>{{showCount}}</td>
+					<td>{{formatDate showsLastUpdated}}</td>
+					<td>
+						<div class="circular ui basic icon button" id="updateShows">
+  						<i class="icon green recycle"></i>
+  					</div>
+  				</td>
+					<td>{{movieCount}}</td>
+					<td>{{formatDate moviesLastUpdated}}</td>
+					<td>
+						<div class="circular ui basic icon button" id="updateMovies">
+  						<i class="icon green recycle"></i>
+						</div>
+					</td>
+				</tr>
+		    {{/each}}
+		  </tbody>
+		</table>
+
+	</div>
+</template>

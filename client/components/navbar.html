@@ -1,0 +1,34 @@
+<template name="navbar">
+  <div class="ui container">
+    <div class="ui secondary pointing menu">
+      <a class="{{isActivePath '/'}} item" href="{{ pathFor '/' }}">
+        Clickr
+      </a>
+      <a class="{{isActivePath '/actors'}} item" href="{{ pathFor '/actors' }}">
+        Actors
+      </a>
+      <a class="{{isActivePath '/channels'}} item" href="{{ pathFor '/channels' }}">
+        Channels
+      </a>
+      <a class="{{isActivePath '/genres'}} item" href="{{ pathFor '/genres' }}">
+        Genres
+      </a>
+      <a class="{{isActivePath '/movies'}} item" href="{{ pathFor '/movies' }}">
+        Movies
+      </a>
+      <a class="{{isActivePath '/shows'}} item" href="{{ pathFor '/shows' }}">
+        Shows
+      </a>
+
+
+      <div class="right menu">
+        <a class="{{isActivePath '/admin'}} item" href="{{ pathFor '/admin' }}">
+        Admin
+        </a>
+        <a class="{{isActivePath '/profile'}} item" href="{{ pathFor '/profile' }}">
+        Profile
+        </a>
+    </div>
+    </div>
+  </div>
+</template>

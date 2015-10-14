@@ -1,0 +1,60 @@
+<template name="channels">
+	<div class="ui segment">
+		<h3>Add Channels</h3>
+		<div class="ui icon input">
+  		<input id="chSearch" type="text" placeholder="Search...">
+  		<i class="search icon"></i>
+		</div>
+	
+	{{#with searchRes}}
+		<div class="ui segment">
+			<div class="ui items">
+				<div class="item" id="{{id}}">
+	    		<div class="image">
+	      		<img src="{{img}}">
+	    		</div>
+	    		<div class="content">
+	      		<a class="header">{{name}}</a>
+	      		<div class="description">
+							<div class="ui circular basic button" id="addCh">
+								<i class="icon plus"></i>
+								Add Channel
+							</div>
+	      		</div>
+	      	</div>
+	    	</div>
+			</div>
+		</div>
+	{{/with}}
+
+	</div>
+	
+	<div class="ui divider"></div>
+	
+	<div class="ui segment">
+		<h3>My Channels</h3>
+
+		<div class="ui four cards">
+			{{#each channels}}
+				<div class="ui fluid card">
+	      	<div class="image">
+	        	<img src="{{artwork}}">
+	      	</div>
+	      	<div class="content">
+	        	<a class="header">{{name}}</a>
+	        	<span class="right floated content">
+	        		<div class="circular ui basic icon button" id="goCh">
+  							<i class="icon blue play"></i>
+							</div>
+	        		<div class="circular ui basic icon button" id="deleteCh">
+  							<i class="icon red remove"></i>
+							</div>
+	        	</span>
+	        </div>
+	    	</div>
+			{{/each}}
+		</div>
+
+	</div>
+
+</template>

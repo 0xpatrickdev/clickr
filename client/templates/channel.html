@@ -1,0 +1,33 @@
+<template name="channel">
+
+	<div class="ui segment">
+		<div class="ui equal width grid">
+
+			<div class="column">
+			</div>
+
+			<div class="column">
+				{{#with channel}}
+				<div class="ui large bordered image">
+					<img src="{{artwork_lg}}">
+			  </div>
+			  {{/with}}
+			</div>
+
+			<div class="column" align="right">
+			</div>
+
+		</div>
+	</div>
+
+	<div class="ui segment">
+		<div class="ui secondary pointing ch menu">
+		  <a class="item" data-tab="favorites">Favorites</a>
+		  <a class="active item" data-tab="shows">Shows</a>
+		  <a class="item" data-tab="movies">Movies</a>
+		</div>
+			{{> Template.dynamic template="channel_content" data=tabData}}
+	</div>
+
+
+</template>
