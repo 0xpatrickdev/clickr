@@ -8,6 +8,7 @@ Meteor.methods({
 		var limit2 = 250;
 		var url = base + "/movies/all/" + limit1 + '/' + limit2 + '/' + ch + '/' + platform;
 		var result = HTTP.call("GET", url);
+		console.log(url);
 		if(result.statusCode===200) {
 			var movieArray = JSON.parse(result.content).results;
 			Meteor.call('addMovies', movieArray, ch, function (err, res) {});
@@ -25,21 +26,15 @@ Meteor.methods({
 	'addMovies': function( movieArray, ch ) {
 		for(var i = 0; i < movieArray.length; i++){
 			var id = movieArray[i].id;
-			var show = {
-				_id: movieArray[i].id,
+			var movieObj = movieArray[i];
+			var info = {
+				_id: id,
 				channel: ch,
-				release_date: moment(movieArray[i].release_date)._d,
-				release_year: movieArray[i].release_year,
-				title: movieArray[i].title,
-				rating: movieArray[i].rating,
-				rottentomates: movieArray[i].rottentomates,
-				imdb_id: movieArray[i].imdb_id,
-				wikipedia_id: movieArray[i].wikipedia_id,
-				freebase: movieArray[i].freebase,
-				artwork: movieArray[i].poster_120x171,
-				artwork_lg: movieArray[i].poster_400x570,
+				updatedAt: Date.now()
 			}
-			Movies.upsert(id, {$set: show}, {validationContext: 'upsertForm'}, function(err, res) {
+			var movie = _.extend(info, movieObj);
+			console.log("movie", movie);
+			Movies.upsert(id, {$set: movie}, {validationContext: 'upsertForm'}, function(err, res) {
 				if (err){
 					console.log("err:", err);
 				}
@@ -50,7 +45,19 @@ Meteor.methods({
 		var url = base + '/movie/' + id;
 		var result = HTTP.call("GET", url);
 		if(result.statusCode===200) {
-			return result;
+			var id = result.data.id;
+			var movieObj = result.data;
+			var info = {
+				_id: id,
+				updatedAt: Date.now()
+			}
+			var movie = _.extend(info, movieObj);
+			console.log("movie", movie);
+			Movies.upsert(id, {$set: movie}, {validationContext: 'upsertForm'}, function(err, res) {
+				if (err){
+					console.log("err:", err);
+				}
+			});
 		}
 	}
 });

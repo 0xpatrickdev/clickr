@@ -51,6 +51,43 @@ Template.admin.events({
 			}
 		});
 	},
+	'click #getSources': function() {
+		Meteor.call('getSources', function (err, res) {
+			if (err) {
+				console.log("Error:", err);
+			} else {
+				console.log(res);
+			}
+		});
+	},
+	'click #getShowInfo': function() {
+		var ids = _.pluck(Shows.find().fetch(), "_id");
+		for(var i = 0; i < ids.length; i++){
+			var id = ids[i];
+			console.log("id", id);
+			Meteor.call('getShowInfo', id, function (err, res) {
+				if (err) {
+					console.log("Error:", err);
+				} else {
+					console.log(res);
+				}
+			});
+		}
+	},
+	'click #getMovieInfo': function() {
+		var ids = _.pluck(Movies.find().fetch(), "_id");
+		for(var i = 0; i < ids.length; i++){
+			var id = ids[i];
+			console.log("id", id);
+			Meteor.call('getMovieInfo', id, function (err, res) {
+				if (err) {
+					console.log("Error:", err);
+				} else {
+					console.log(res);
+				}
+			});
+		}
+	},
 	'click #updateShows': function( event, template) {
 		var ch = this.short_name;
 		console.log("shortname", ch);
